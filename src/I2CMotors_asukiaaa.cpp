@@ -26,6 +26,7 @@ int I2CMotors_asukiaaa::writeSpeed(int speedL, int speedR) {
   uint8_t l = speedL > 0xff ? 0xff : speedL;
   uint8_t r = speedR > 0xff ? 0xff : speedR;
   wire->beginTransmission(address);
+  wire->write(I2C_MOTORS_ASUKIAAA_ADDRESS_CONFIG);
   wire->write(config);
   wire->write(l);
   wire->write(r);
@@ -78,6 +79,7 @@ int I2CMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
 
 int I2CMotors_asukiaaa::writeBrake() {
   wire->beginTransmission(address);
+  wire->write(I2C_MOTORS_ASUKIAAA_ADDRESS_CONFIG);
   wire->write(0b100);
   return wire->endTransmission();
 }
