@@ -67,10 +67,10 @@ int I2CMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
   uint8_t config = buff[0];
   int l = buff[1];
   int r = buff[2];
-  if (config & 0b01 == 0) {
+  if ((config & 0b01) == 0) {
     l = -l;
   }
-  if (config & 0b10 == 0) {
+  if ((config & 0b10) == 0) {
     r = -r;
   }
   *speedL = l;
