@@ -75,6 +75,8 @@ int I2CMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
   }
   *speedL = l;
   *speedR = r;
+
+  return 0;
 }
 
 int I2CMotors_asukiaaa::writeBrake() {
