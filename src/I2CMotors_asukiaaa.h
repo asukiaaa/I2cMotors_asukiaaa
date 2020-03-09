@@ -10,6 +10,12 @@
 
 #define I2C_MOTORS_ASUKIAAA_ERROR_READ_WRONG_LEN 5
 
+// #define DEBUG_PRINT
+
+#ifdef DEBUG_PRINT
+#include <Arduino.h>
+#endif
+
 class I2CMotors_asukiaaa {
  public:
   I2CMotors_asukiaaa(uint8_t address) {

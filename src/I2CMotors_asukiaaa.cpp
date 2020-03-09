@@ -49,8 +49,15 @@ int I2CMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
       buff[buffIndex] = d;
       ++buffIndex;
     }
+#ifdef DEBUG_PRINT
+  Serial.print(String(d) + " ");
+#endif
     ++receivedLen;
   }
+
+#ifdef DEBUG_PRINT
+  Serial.println("receivedLen " + String(receivedLen));
+#endif
 
   if (receivedLen != buffLen) {
     return I2C_MOTORS_ASUKIAAA_ERROR_READ_WRONG_LEN;
