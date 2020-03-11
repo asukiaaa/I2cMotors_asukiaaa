@@ -1,7 +1,7 @@
-#include <I2CMotors_asukiaaa.h>
+#include <I2cMotors_asukiaaa.h>
 
 #define MOTORS_ADDRESS 0b00001000
-I2CMotors_asukiaaa motors(MOTORS_ADDRESS);
+I2cMotors_asukiaaa motors(MOTORS_ADDRESS);
 
 void setup() {
   Serial.begin(115200);

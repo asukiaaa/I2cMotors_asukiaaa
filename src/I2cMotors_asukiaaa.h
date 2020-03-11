@@ -16,9 +16,9 @@
 #include <Arduino.h>
 #endif
 
-class I2CMotors_asukiaaa {
+class I2cMotors_asukiaaa {
  public:
-  I2CMotors_asukiaaa(uint8_t address) {
+  I2cMotors_asukiaaa(uint8_t address) {
     wire = NULL;
     this->address = address;
     reverseLeft = false;

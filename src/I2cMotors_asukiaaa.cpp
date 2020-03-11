@@ -1,17 +1,17 @@
-#include <I2CMotors_asukiaaa.h>
+#include <I2cMotors_asukiaaa.h>
 
-void I2CMotors_asukiaaa::setWire(TwoWire* wire) {
+void I2cMotors_asukiaaa::setWire(TwoWire* wire) {
   this->wire = wire;
 }
 
-void I2CMotors_asukiaaa::begin() {
+void I2cMotors_asukiaaa::begin() {
   if (this->wire == NULL) {
     Wire.begin();
     this->wire = &Wire;
   }
 }
 
-int I2CMotors_asukiaaa::writeSpeed(int speedL, int speedR) {
+int I2cMotors_asukiaaa::writeSpeed(int speedL, int speedR) {
   uint8_t config = 0;
   if (speedL < 0) {
     speedL = - speedL;
@@ -23,8 +23,8 @@ int I2CMotors_asukiaaa::writeSpeed(int speedL, int speedR) {
   } else {
     config ^= 0b010;
   }
-  uint8_t l = speedL > 0xff ? 0xff : speedL;
-  uint8_t r = speedR > 0xff ? 0xff : speedR;
+  uint8_t l = speedL > 0xff ? 0xff : 0xff & speedL;
+  uint8_t r = speedR > 0xff ? 0xff : 0xff & speedR;
   wire->beginTransmission(address);
   wire->write(I2C_MOTORS_ASUKIAAA_ADDRESS_CONFIG);
   wire->write(config);
@@ -33,7 +33,7 @@ int I2CMotors_asukiaaa::writeSpeed(int speedL, int speedR) {
   return wire->endTransmission();
 }
 
-int I2CMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
+int I2cMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
   wire->beginTransmission(address);
   wire->write(I2C_MOTORS_ASUKIAAA_ADDRESS_CONFIG);
   int result = wire->endTransmission();
@@ -79,7 +79,7 @@ int I2CMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
   return 0;
 }
 
-int I2CMotors_asukiaaa::writeBrake() {
+int I2cMotors_asukiaaa::writeBrake() {
   wire->beginTransmission(address);
   wire->write(I2C_MOTORS_ASUKIAAA_ADDRESS_CONFIG);
   wire->write(0b100);
