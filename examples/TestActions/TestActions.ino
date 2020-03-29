@@ -34,28 +34,28 @@ void loop() {
   }
 
   Serial.println("left wheel forward");
-  writeSpeedWithCheckingResult(100, 0);
+  writeSpeedWithCheckingResult(127, 0);
   readAndPrintSpeed();
   delay(500);
   motors.writeBrake();
   delay(2000);
 
   Serial.println("left wheel back");
-  writeSpeedWithCheckingResult(-100, 0);
+  writeSpeedWithCheckingResult(-127, 0);
   readAndPrintSpeed();
   delay(500);
   motors.writeBrake();
   delay(2000);
 
   Serial.println("right wheel forward");
-  writeSpeedWithCheckingResult(0, 100);
+  writeSpeedWithCheckingResult(0, 127);
   readAndPrintSpeed();
   delay(500);
   motors.writeBrake();
   delay(2000);
 
   Serial.println("right wheel back");
-  writeSpeedWithCheckingResult(0, -100);
+  writeSpeedWithCheckingResult(0, -127);
   readAndPrintSpeed();
   delay(500);
   motors.writeBrake();
