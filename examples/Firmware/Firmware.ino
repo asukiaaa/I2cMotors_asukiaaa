@@ -36,6 +36,8 @@ void onReceive(int howMany) {
 void onRequest() {
   if (registerIndex < REGISTER_LEN) {
     Wire.write(&registers[registerIndex], REGISTER_LEN - registerIndex);
+  } else {
+    Wire.write(0);
   }
 }
 
