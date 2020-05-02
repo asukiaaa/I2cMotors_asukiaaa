@@ -49,7 +49,20 @@ void setup() {
   pinMode(MOTOR_STDBY, OUTPUT);
   pinMode(MOTOR_A_PWM, OUTPUT);
   pinMode(MOTOR_B_PWM, OUTPUT);
-  uint8_t address = 0b1000;
+
+  for (int i = 0; i < 8; ++i) {
+    pinMode(addrPins[i], INPUT_PULLUP);
+  }
+
+  uint8_t address = 0;
+  for (int i = 0; i < 8; ++i) {
+    uint8_t pin = addrPins[7-i];
+    address <<= 1;
+    if (digitalRead(pin) == LOW) {
+      address |= 1;
+    }
+  }
+
   Wire.begin(address);
 
   // Disable pullup by internal resisters

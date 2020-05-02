@@ -1,6 +1,6 @@
 #include <I2cMotors_asukiaaa.h>
 
-#define MOTORS_ADDRESS 0b00001000
+#define MOTORS_ADDRESS 0b01010010
 I2cMotors_asukiaaa motors(MOTORS_ADDRESS);
 
 void setup() {
