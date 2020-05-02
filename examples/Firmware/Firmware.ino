@@ -10,6 +10,17 @@
 
 #define ACTIVE_LIFE_MS 1000
 
+uint8_t addrPins[] = {
+  A0,
+  A1,
+  A2,
+  A3,
+  0,
+  1,
+  2,
+  3
+};
+
 #define REGISTER_LEN 3
 uint8_t registers[REGISTER_LEN];
 uint8_t registerIndex;
