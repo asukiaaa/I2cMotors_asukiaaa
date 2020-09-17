@@ -38,7 +38,7 @@ int I2cMotors_asukiaaa::readSpeed(int* speedL, int* speedR) {
   wire->write(I2C_MOTORS_ASUKIAAA_ADDRESS_CONFIG);
   int result = wire->endTransmission();
   if (result != 0) return result;
-  static const int buffLen = 3;
+  static const uint8_t buffLen = 3;
   uint8_t buff[buffLen];
   uint8_t buffIndex = 0;
   wire->requestFrom(address, buffLen);
