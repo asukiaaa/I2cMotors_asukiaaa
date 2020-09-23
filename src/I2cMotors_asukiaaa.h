@@ -18,12 +18,7 @@
 
 class I2cMotors_asukiaaa {
  public:
-  I2cMotors_asukiaaa(uint8_t address) {
-    wire = NULL;
-    this->address = address;
-    reverseLeft = false;
-    reverseRight = false;
-  };
+  I2cMotors_asukiaaa(uint8_t address);
 
   void setWire(TwoWire* wire);
   void begin();

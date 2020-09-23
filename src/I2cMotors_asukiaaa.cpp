@@ -1,5 +1,12 @@
 #include <I2cMotors_asukiaaa.h>
 
+I2cMotors_asukiaaa::I2cMotors_asukiaaa(uint8_t address) {
+  wire = NULL;
+  this->address = address;
+  reverseLeft = false;
+  reverseRight = false;
+};
+
 void I2cMotors_asukiaaa::setWire(TwoWire* wire) {
   this->wire = wire;
 }
