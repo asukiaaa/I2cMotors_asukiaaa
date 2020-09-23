@@ -61,6 +61,10 @@ void setup() {
   pinMode(MOTOR_A_PWM, OUTPUT);
   pinMode(MOTOR_B_PWM, OUTPUT);
 
+#ifdef DEVICE_ADDRESS
+  uint8_t address = DEVICE_ADDRESS;
+#else
+  uint8_t address = 0;
   for (int i = 0; i < 8; ++i) {
     pinMode(addrPins[i], INPUT_PULLUP);
   }
@@ -73,7 +77,7 @@ void setup() {
       address |= 1;
     }
   }
-
+#endif
   Wire.begin(address);
 
   // Disable pullup by internal resisters
